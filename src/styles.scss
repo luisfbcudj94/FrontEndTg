@@ -317,7 +317,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .container-control{
     display: grid;
-    grid-template-columns: 30% 10% 60%;
+    grid-template-columns: 30% 20% 50%;
     grid-template-rows: 10% 25% 65%;
     width: calc(100% - 10px);
     height: calc(100vh - 76px);
@@ -330,7 +330,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         justify-content: center;
         align-items: center;
         img{
-            width: 450px;
+            height: 95%;
         }
     }
 
@@ -509,10 +509,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
             border-radius: 8px;
             display: flex;
             flex-direction: column;
+            overflow: auto;
 
             app-chart-custom{
                 width: 100%;
-                height: 300px;
+                height: 65%;
             }
 
             .title{
@@ -526,6 +527,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
                 flex-direction: row;
                 margin-top: 20px;
                 justify-content: center;
+                margin-top: 3vh;
 
                 button{
                     margin-right: 20px;
@@ -631,7 +633,18 @@ width: 130px;
 
 
     .container-control{
-        grid-template-rows: 10% 30% auto auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        .img-robot img {
+            width: 95%;
+        }
+
+        .prender-robot{
+            margin-top: 10px;
+            margin-right: 10px;
+        }
 
         .select-modo{
 
@@ -665,6 +678,22 @@ width: 130px;
                     justify-content: center;
                     align-items: center;
                     margin-top: 10px;
+                }
+
+                .container-buttons{
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-row-gap: 10px;
+                    justify-items: center;
+
+                    button{
+                        width: 85%;
+                        margin-right: 0px;
+                    }
+
+                    .red-button{
+                        grid-column: 1/3;
+                    }
                 }
             }
         }
