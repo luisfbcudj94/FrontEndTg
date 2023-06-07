@@ -8,8 +8,9 @@ import { HttpClient, HttpStatusCode } from '@angular/common/http';
 })
 export class ModosService {
 
-  // urlApiTG = 'http://localhost:7175/api'
-  urlApiTG = "https://masterusers.azurewebsites.net/api";
+  urlApiTG = 'http://localhost:7175/api'
+  // urlApiTG = "https://masterusers.azurewebsites.net/api";
+  // urlApiTG = "https://tg-backend-jl.azurewebsites.net/api";
 
   constructor(private http: HttpClient) { }
 

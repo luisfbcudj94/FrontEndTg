@@ -13,6 +13,9 @@ import { InformationComponent } from './pages/home/information/information.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CentroControlComponent } from './pages/centro-control/centro-control.component';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ChartCustomComponent } from './shared/chart-custom/chart-custom.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     ToolbarComponent,
     InformationComponent,
-    CentroControlComponent
+    CentroControlComponent,
+    ChartCustomComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     AngularMaterialModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSpinnerModule,
+    NgChartsModule
   ],
   exports:[
     LoginComponent,
@@ -39,7 +45,8 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     ToolbarComponent,
     InformationComponent,
-    CentroControlComponent
+    CentroControlComponent,
+    ChartCustomComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

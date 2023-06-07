@@ -4,23 +4,23 @@
         <!-- <span class="text-logo">Comercializadora Digital</span> -->
     </div>
     <ul class="menu">
-        <li mat-ripple routerLinkActive="active" [routerLink]="['information']">
+        <li mat-ripple routerLinkActive="active" [routerLink]="['information']" (click)="onClose()">
             <i class="material-icons icon">electric_meter</i>
             <span>Información</span>
         </li>
-        <li mat-ripple [routerLink]="['control']">
+        <li mat-ripple [routerLink]="['control']" (click)="onClose()">
             <i class="material-icons icon">handshake</i>
             <span>Centro de control</span>
         </li>
-        <li mat-ripple [routerLink]="['angles']">
+        <li mat-ripple [routerLink]="['angles']" (click)="onClose()">
             <i class="material-icons icon">description</i>
             <span>Instrumentación posicional</span>
         </li>
-        <li mat-ripple [routerLink]="['electrical']">
+        <li mat-ripple [routerLink]="['electrical']" (click)="onClose()">
             <i class="material-icons icon">insights</i>
             <span>Instrumentación electrica</span>
         </li>
-        <li mat-ripple [routerLink]="['obstacles']">
+        <li mat-ripple [routerLink]="['obstacles']" (click)="onClose()">
             <i class="material-icons icon">history</i>
             <span>Instrumentación obstaculos</span>
         </li>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { Observable, Subscription, fromEvent, map } from 'rxjs';
+import { AsideService } from 'src/app/services/aside.service';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,13 @@ export class HomeComponent {
   isDraweOpened: boolean = true;
   observerWidth: Observable<number>;
   subscriptionWidth: Subscription;
+  closeAsideSubscription: Subscription;
+  closeAside: boolean;
 
-  constructor() {
+  constructor(private asideService: AsideService) {
     this.drawerMode = 'side';
   }
+
   ngOnInit(): void {
     this.getWindowWidth(window.innerWidth);
 
@@ -30,11 +34,27 @@ export class HomeComponent {
         this.getWindowWidth(data);
       }
     });
+
+
   }
+
+  ngOnDestroy() {
+    this.closeAsideSubscription.unsubscribe();
+  }
+
+
   private getWindowWidth(data: number) {
     if (data <= 767.98) {
       this.drawerMode = 'over';
       this.isDraweOpened = false;
+
+      this.closeAsideSubscription = this.asideService.closeAside$.subscribe((value) => {
+        if(value){
+          this.isDraweOpened  = false;
+          this.asideService.toggleCloseAside(false);
+        }
+      });
+
     } else {
       this.drawerMode = 'side';
       this.isDraweOpened = true;

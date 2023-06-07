@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/1a73fd0d-e305-403a-9c98-6d5908c69f8f/resourceGroups/postrequisiciones20220804071739ResourceGroup/providers/Microsoft.Web/sites/TG-UEIA",
+    "appService.deploySubpath": "dist\\front-end-tg"
+}

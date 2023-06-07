@@ -38,6 +38,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 export const MY_FORMATS = {
   parse: {
@@ -91,7 +92,8 @@ export const MY_FORMATS = {
     MatTreeModule,
     MatNativeDateModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   exports: [
      MatAutocompleteModule,
