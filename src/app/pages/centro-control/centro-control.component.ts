@@ -292,7 +292,7 @@ export class CentroControlComponent implements OnInit {
     let superiorX: number = 5;
 
     let inferiorY: number = 10;
-    let superiorY: number = 15;
+    let superiorY: number = 17;
 
     let px: string[] = ['P1X','P2X','P3X','P4X'];
     let py: string[] = ['P1Y','P2Y','P3Y','P4Y'];
