@@ -415,6 +415,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
             flex-direction: column;
             overflow: auto;
 
+            span{
+                text-align: center;
+                margin-top: 8px;
+            }
+
             .title{
                 text-align: center;
                 margin-top: 10px;
@@ -609,6 +614,64 @@ width: 130px;
 }
 
 
+.container-information{
+
+    .title{
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .container-sections{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-top: 40px;
+
+        .information{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .container-buttons{
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .box{
+                width: 90%;
+                box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.36);
+                border-radius: 8px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                min-height: 240px;
+
+                .title{
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        .insumos{
+            width: 90%;
+            box-shadow: 0px 0px 11px -1px rgba(0, 0, 0, 0.36);
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            min-height: 240px;
+
+            .title{
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
+
 @media (max-width: 767.98px) {
 
 
@@ -698,6 +761,36 @@ width: 130px;
             }
         }
     }
+
+    .container-information{
+
+        .container-sections{
+            display: grid;
+            grid-template-columns: 100%;
+            justify-items: center;
+            text-align: justify;
+
+            .information{
+                margin-bottom: 20px;
+
+                .container-buttons{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    row-gap: 10px;
+                }
+
+                .box{
+                    align-items: center;
+
+                    img{
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+
 
     
     

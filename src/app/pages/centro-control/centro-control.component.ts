@@ -67,7 +67,7 @@ export class CentroControlComponent implements OnInit {
 
     this.intervalId = setInterval(() => {
       this.getMode();
-    }, 500);
+    }, 250);
   }
 
   initFilterForm() {
@@ -154,7 +154,7 @@ export class CentroControlComponent implements OnInit {
   
           case 'pata4':
             this.titlePataSelected = 'Pata 4';
-            _dataChartSelected = this.setChart(this.angulo41,this.angulo42,this.hora,'Hora','Grados','Motor 1','Motor 2','#0C00FF','#FF0909')
+            _dataChartSelected = this.setChart(this.angulo41,this.angulo32,this.hora,'Hora','Grados','Motor 1','Motor 2','#0C00FF','#FF0909')
             this.dataChartSelected.dataChartOptions =  _dataChartSelected.dataChartOptions;
             this.dataChartSelected.lineChartOptions =  _dataChartSelected.lineChartOptions;
             break;
@@ -191,30 +191,7 @@ export class CentroControlComponent implements OnInit {
         
         this.MarchasDefinidas = response[1].filter((elemento) => elemento.seccionId === 4);
 
-        this.puntosHome = response[2][0];
-
-        // this.patasForm.patchValue({
-        //   P1X: this.puntosHome.p1X -3,
-        //   P1Y: this.puntosHome.p1Y,
-        //   P2X: this.puntosHome.p2X +3,
-        //   P2Y: this.puntosHome.p2Y-1,
-        //   P3X: this.puntosHome.p3X -3,
-        //   P3Y: this.puntosHome.p3Y -1,
-        //   P4X: this.puntosHome.p4X,
-        //   P4Y: this.puntosHome.p4Y
-        // });
-
-        // this.patasForm.patchValue({
-        //   P1X: this.puntosHome.p1X ,
-        //   P1Y: this.puntosHome.p1Y,
-        //   P2X: this.puntosHome.p2X,
-        //   P2Y: this.puntosHome.p2Y,
-        //   P3X: this.puntosHome.p3X,
-        //   P3Y: this.puntosHome.p3Y,
-        //   P4X: this.puntosHome.p4X,
-        //   P4Y: this.puntosHome.p4Y
-        // });
-        
+        this.puntosHome = response[2][0];    
 
 
         switch (this.secionIdActiva) {
@@ -310,51 +287,77 @@ export class CentroControlComponent implements OnInit {
 
   sendData(){
     this.spinner.show();
+    
+    let inferiorX: number = -5;
+    let superiorX: number = 5;
 
+    let inferiorY: number = 10;
+    let superiorY: number = 15;
 
-    // let puntosPata: PuntosModel ={
-    //   id: 10,
-    //   p1X: this.patasForm.get('P1X').value == this.puntosHomeAjuste[0] ? this.puntosHome.p1X : this.patasForm.get('P1X').value +3,
-    //   p1Y: this.patasForm.get('P1Y').value == this.puntosHomeAjuste[1] ? this.puntosHome.p1Y : this.patasForm.get('P1Y').value,
-    //   p2X: this.patasForm.get('P2X').value == this.puntosHomeAjuste[0] ? this.puntosHome.p2X : this.patasForm.get('P2X').value-3,
-    //   p2Y: this.patasForm.get('P2Y').value == this.puntosHomeAjuste[1] ? this.puntosHome.p2Y : this.patasForm.get('P2Y').value+1,
-    //   p3X: this.patasForm.get('P3X').value == this.puntosHomeAjuste[0] ? this.puntosHome.p3X : this.patasForm.get('P3X').value+3,
-    //   p3Y: this.patasForm.get('P3Y').value == this.puntosHomeAjuste[1] ? this.puntosHome.p3Y : this.patasForm.get('P3Y').value+1,
-    //   p4X: this.patasForm.get('P4X').value == this.puntosHomeAjuste[0] ? this.puntosHome.p4X : this.patasForm.get('P4X').value,
-    //   p4Y: this.patasForm.get('P4Y').value == this.puntosHomeAjuste[1] ? this.puntosHome.p4Y : this.patasForm.get('P4Y').value
-    // }
+    let px: string[] = ['P1X','P2X','P3X','P4X'];
+    let py: string[] = ['P1Y','P2Y','P3Y','P4Y'];
 
-    let puntosPata: PuntosModel ={
-      id: 8,
-      p1X: this.patasForm.get('P1X').value == null ? this.puntosHome.p1X : this.patasForm.get('P1X').value,
-      p1Y: this.patasForm.get('P1Y').value == null ? this.puntosHome.p1Y : this.patasForm.get('P1Y').value,
-      p2X: this.patasForm.get('P2X').value == null ? this.puntosHome.p2X : this.patasForm.get('P2X').value,
-      p2Y: this.patasForm.get('P2Y').value == null ? this.puntosHome.p2Y : this.patasForm.get('P2Y').value,
-      p3X: this.patasForm.get('P3X').value == null ? this.puntosHome.p3X : this.patasForm.get('P3X').value,
-      p3Y: this.patasForm.get('P3Y').value == null ? this.puntosHome.p3Y : this.patasForm.get('P3Y').value,
-      p4X: this.patasForm.get('P4X').value == null ? this.puntosHome.p4X : this.patasForm.get('P4X').value,
-      p4Y: this.patasForm.get('P4Y').value == null ? this.puntosHome.p4Y : this.patasForm.get('P4Y').value
+    let valoresBien: boolean= true;
+
+    px.forEach(pto => {
+      if(this.patasForm.get(pto).value !== null){
+        if(this.patasForm.get(pto).value < inferiorX || this.patasForm.get(pto).value > superiorX){
+          valoresBien = false;
+        }
+      }
+
+    });
+
+    py.forEach(pto => {
+      if(this.patasForm.get(pto).value !== null){
+        if(this.patasForm.get(pto).value < inferiorY || this.patasForm.get(pto).value > superiorY){
+          valoresBien = false;
+        }
+      }
+
+    });
+
+    if(valoresBien){
+      let puntosPata: PuntosModel ={
+        id: 8,
+        p1X: this.patasForm.get('P1X').value == null ? this.puntosHome.p1X : this.patasForm.get('P1X').value,
+        p1Y: this.patasForm.get('P1Y').value == null ? this.puntosHome.p1Y : this.patasForm.get('P1Y').value,
+        p2X: this.patasForm.get('P2X').value == null ? this.puntosHome.p2X : this.patasForm.get('P2X').value,
+        p2Y: this.patasForm.get('P2Y').value == null ? this.puntosHome.p2Y : this.patasForm.get('P2Y').value,
+        p3X: this.patasForm.get('P3X').value == null ? this.puntosHome.p3X : this.patasForm.get('P3X').value,
+        p3Y: this.patasForm.get('P3Y').value == null ? this.puntosHome.p3Y : this.patasForm.get('P3Y').value,
+        p4X: this.patasForm.get('P4X').value == null ? this.puntosHome.p4X : this.patasForm.get('P4X').value,
+        p4Y: this.patasForm.get('P4Y').value == null ? this.puntosHome.p4Y : this.patasForm.get('P4Y').value
+      }
+  
+      console.log("PUNTOS ENVIADOS: ",puntosPata)
+  
+  
+      let obs: Observable<any>[] = [];
+      obs.push(this.puntosService.ActualizarPunto(puntosPata));
+  
+      forkJoin(obs).subscribe({
+        next: response => {
+          this.loadData();
+  
+          this.toastr.success("Se han enviado correctamente los puntos en el modo manual.");
+          this.spinner.hide();
+        },
+        error: err => {
+          console.log(err);
+          this.toastr.error(err);
+          this.spinner.hide();
+        }
+      });
+    }
+    else{
+      this.toastr.error('Puntos no validos');
+      this.spinner.hide();
     }
 
-    console.log("PUNTOS ENVIADOS: ",puntosPata)
 
 
-    let obs: Observable<any>[] = [];
-    obs.push(this.puntosService.ActualizarPunto(puntosPata));
 
-    forkJoin(obs).subscribe({
-      next: response => {
-        this.loadData();
-
-        this.toastr.success("Se han enviado correctamente los puntos en el modo manual.");
-        this.spinner.hide();
-      },
-      error: err => {
-        console.log(err);
-        this.toastr.error(err);
-        this.spinner.hide();
-      }
-    });
   }
 
   setChart(_data_y: number[], _data_y2: number[], _data_x: string[], _axisX: string, _axisY: string, _label: string,_label2:string, _color: string, _color2: string): ChartDataCustom{

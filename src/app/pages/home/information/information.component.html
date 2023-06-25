@@ -1,1 +1,56 @@
-<p>information works!</p>
+<div class="container-information">
+    <div class="title">
+        <span>PLATAFORMA CUADRÚPEDA RCJA</span>
+    </div>
+    <div class="container-sections">
+        <div class="information">
+            <div class="container-buttons">
+                <button class="blue-claro-button" (click)="changeSection('resumen')">Resumen</button>
+                <button class="blue-claro-button" (click)="changeSection('objetivos')">Objetivos</button>
+                <button class="blue-claro-button" (click)="changeSection('metodologia')">Metodología</button>
+                <button class="blue-claro-button" (click)="changeSection('resultados')">Resultados</button>
+            </div>
+            <div class="box resumen" *ngIf="showResumen">
+                <span class="title">Resumen</span>
+                <span>En esta página web, encontrarás información detallada sobre nuestro proyecto de tesis desarrollado en el campo de la robótica móvil. Nos propusimos crear un dispositivo cuadrúpedo que permitiera explorar y estudiar estrategias de control, instrumentación, electrónica, diseño y programación. Este proyecto fue realizado como parte de nuestros estudios en la Universidad EIA y contó con la participación de los creadores: Juan Manuel Hincapie y Luis Alejandro Pérez.</span>
+            </div>
+
+            <div class="box objetivos" *ngIf="showObjetivos">
+                <span class="title">Objetivos del proyecto</span>
+                <ul>
+                    <li>Diseñar y construir un dispositivo cuadrúpedo para la investigación en robótica móvil.</li>
+                    <li>Explorar y estudiar estrategias de control aplicadas a la locomoción y manipulación del robot.</li>
+                    <li>Investigar y desarrollar sistemas de instrumentación y electrónica para el funcionamiento del dispositivo.</li>
+                    <li>Realizar la programación necesaria para el control y la interacción del robot con su entorno.</li>
+                </ul>
+            </div>
+
+            <div class="box metodologia" *ngIf="showMetodologia">
+                <span class="title">Metodología</span>
+                <span>Nuestro proyecto se llevó a cabo siguiendo una metodología rigurosa, que incluyó las siguientes etapas: investigación bibliográfica, diseño y prototipado, implementación de componentes electrónicos y sensores, desarrollo de algoritmos de control, pruebas y evaluación de desempeño.</span>
+            </div>
+
+            <div class="box resultados" *ngIf="showResultados">
+                <span class="title">Resultados</span>
+                <span>Los resultados obtenidos en este proyecto de investigación son de gran relevancia para el campo de la robótica móvil. Hemos logrado diseñar y construir un dispositivo cuadrúpedo funcional, capaz de realizar diferentes movimientos y tareas. Además, hemos explorado diversas estrategias de control y hemos desarrollado programas de software para la interacción con el entorno.</span>
+                <img src="../../../../assets/EJES_ROBOT.jpeg" alt="">
+            </div>
+        </div>
+
+        <div class="insumos">
+            <span class="title">Insumos</span>
+            <span>En esta sección, encontrarás todos los recursos necesarios para construir y mejorar nuestro proyecto de robótica móvil. Ponemos a tu disposición los siguientes materiales:</span>
+            <ul>
+                <li><a href="https://github.com/juanma010901/Quadruped-Robot/tree/main/Dise%C3%B1os/files" target="_blank">Diseños cad</a> </li>
+                <li><a href="https://github.com/juanma010901/Quadruped-Robot/tree/main/C%C3%B3digos/Principal/Main%20ESP32" target="_blank">Códigos en python de la esp principal del robot</a></li>
+                <li><a href="https://github.com/juanma010901/Quadruped-Robot/tree/main/C%C3%B3digos/Principal/Aux%20ESP32" target="_blank">Códigos en python de la esp encargada de leer los encoders</a> </li>
+                <li><a href="https://github.com/juanma010901/Quadruped-Robot/tree/main/C%C3%B3digos/Principal/Arduino%20Nano/Nano" target="_blank">Código del arduino nano</a></li>
+                <li><a href="https://github.com/juanma010901/Quadruped-Robot/tree/main/Plataforma%20Web/FrontEnd" target="_blank">Código del front end de la aplicación en Angular</a></li>
+                <li><a href="https://github.com/juanma010901/Quadruped-Robot/tree/main/Plataforma%20Web/BackEnd/MotionTestApi" target="_blank">Códigos del backend de la aplicación en .Net</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+
+    </div>
+</div>

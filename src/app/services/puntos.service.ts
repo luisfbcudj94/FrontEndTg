@@ -9,8 +9,9 @@ import { PuntosModel } from '../models/PuntosModel';
 
 export class PuntosService {
 
-  urlApiTG = 'http://localhost:7175/api';
-  // urlApiTG = "https://tg-backend-jl.azurewebsites.net/api";
+  // urlApiTG = 'http://localhost:7175/api';
+  urlApiTG = "https://tg-backend-jl.azurewebsites.net/api";
+  // urlApiTG = "https://tgueia.azurewebsites.net/api";
   // urlApiTG = "https://masterusers.azurewebsites.net/api";
 
   constructor(private http: HttpClient) { }

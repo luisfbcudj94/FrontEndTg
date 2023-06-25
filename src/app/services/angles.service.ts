@@ -7,9 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class AnglesService {
 
-  urlApiTG = 'http://localhost:7175/api'
+  // urlApiTG = 'http://localhost:7175/api'
   // urlApiTG = "https://masterusers.azurewebsites.net/api";
-  // urlApiTG = "https://tg-backend-jl.azurewebsites.net/api";
+  urlApiTG = "https://tg-backend-jl.azurewebsites.net/api";
+  // urlApiTG = "https://tgueia.azurewebsites.net/api";
 
   constructor(private http: HttpClient) { }
 
